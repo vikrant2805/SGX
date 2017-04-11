@@ -1,1 +1,1 @@
-* filter=test
+*.txt filter=test
