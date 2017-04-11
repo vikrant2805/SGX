@@ -1,0 +1,3 @@
+[filter "test"]
+	clean = /root/SGX/clean
+	smudge = /root/SGX/smudge
