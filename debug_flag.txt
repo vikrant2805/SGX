@@ -1,4 +1,1 @@
-/ false on production branch
-// true on other branches
-DEBUG = false;
-hello
+In the clean Script
