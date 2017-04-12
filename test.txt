@@ -1,1 +1,1 @@
-hello runing from clean scrip
+hello runing from clean script
