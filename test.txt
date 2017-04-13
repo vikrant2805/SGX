@@ -1,1 +1,3 @@
-Running for smudge script
+/root/SGX
+number of files is  1
+number of dir is  1
