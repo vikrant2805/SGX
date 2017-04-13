@@ -1,3 +1,3 @@
 /root/SGX
-Number of files: 0
-Number of directories: 0
+number of files is  1
+number of dir is  0
