@@ -1,3 +1,1 @@
-/root/SGX
-number of files is  2
-number of dir is  2
+running for smudge script
