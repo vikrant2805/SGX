@@ -1,1 +1,3 @@
+/root/SGX
+/root
 hello runing from clean script
