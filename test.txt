@@ -1,7 +1,11 @@
 /root/SGX
-unning for smudge script
+Running for smudge script
 
-dW5uaW5nIGZvciBzbXVkZ2Ugc2NyaXB0Cg==
+UnVubmluZyBmb3Igc211ZGdlIHNjcmlwdAo=
 
-number of files is  1
+hello vikrant
+
+aGVsbG8gdmlrcmFudAo=
+
+number of files is  2
 number of dir is  1
