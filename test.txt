@@ -1,6 +1,7 @@
 /root/SGX
-str read from file is : running for smudge script
+unning for smudge script
 
-26
+dW5uaW5nIGZvciBzbXVkZ2Ugc2NyaXB0Cg==
+
 number of files is  1
 number of dir is  1
