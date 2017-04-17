@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /root/SGX
 Running for smudge script
 
@@ -8,3 +9,5 @@ aGVsbG8gdmlrcmFudAo=
 
 number of files is  2
 number of dir is  1
+=======
+>>>>>>> a11a03ad167d73362e7ffeff8ee0746266baa465
