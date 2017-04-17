@@ -1,7 +1,6 @@
 /root/SGX
 Running for smudge script
 
-UnVubmluZyBmb3Igc211ZGdlIHNjcmlwdAo=
 
 hello vikrant
 
