@@ -1,1112 +1,556 @@
-the 1 argument is 
 
-the 1 argument is  * Copyright 2015 IBM Corp.
 !+!Dpqzsjhiu!3126!JCN!Dpsq/
-the 1 argument is  * Licensed under the Apache License, Version 2.0 (the "License");
 !+!Mjdfotfe!voefs!uif!Bqbdif!Mjdfotf-!Wfstjpo!3/1!)uif!#Mjdfotf#*<
-the 1 argument is  * you may not use this file except in compliance with the License.
 !+!zpv!nbz!opu!vtf!uijt!gjmf!fydfqu!jo!dpnqmjbodf!xjui!uif!Mjdfotf/
-the 1 argument is  * You may obtain a copy of the License at
 !+!Zpv!nbz!pcubjo!b!dpqz!pg!uif!Mjdfotf!bu
-the 1 argument is  * 
 !+!
-the 1 argument is  * http://www.apache.org/licenses/LICENSE-2.0
 !+!iuuq;00xxx/bqbdif/psh0mjdfotft0MJDFOTF.3/1
-the 1 argument is   
-!!
-the 1 argument is  * Unless required by applicable law or agreed to in writing, software
+!+!
 !+!Vomftt!sfrvjsfe!cz!bqqmjdbcmf!mbx!ps!bhsffe!up!jo!xsjujoh-!tpguxbsf
-the 1 argument is  * distributed under the License is distributed on an "AS IS" BASIS,
 !+!ejtusjcvufe!voefs!uif!Mjdfotf!jt!ejtusjcvufe!po!bo!#BT!JT#!CBTJT-
-the 1 argument is  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 !+!XJUIPVU!XBSSBOUJFT!PS!DPOEJUJPOT!PG!BOZ!LJOE-!fjuifs!fyqsftt!ps!jnqmjfe/
-the 1 argument is  * See the License for the specific language governing permissions and
 !+!Tff!uif!Mjdfotf!gps!uif!tqfdjgjd!mbohvbhf!hpwfsojoh!qfsnjttjpot!boe
-the 1 argument is  * limitations under the License.
 !+!mjnjubujpot!voefs!uif!Mjdfotf/
-the 1 argument is  */
 !+0
-the 1 argument is (function () {
 )gvodujpo!)*!|
-the 1 argument is   'use strict';
 !!(vtf!tusjdu(<
-the 1 argument is 
 
-the 1 argument is   /**
 !!0++
-the 1 argument is    * @ngdoc controller
 !!!+!Aohepd!dpouspmmfs
-the 1 argument is    * @name LaunchInstanceSourceController
 !!!+!Aobnf!MbvodiJotubodfTpvsdfDpouspmmfs
-the 1 argument is    * @description
 !!!+!Aeftdsjqujpo
-the 1 argument is    * The `LaunchInstanceSourceController` controller provides functions for
 !!!+!Uif!aMbvodiJotubodfTpvsdfDpouspmmfsa!dpouspmmfs!qspwjeft!gvodujpot!gps
-the 1 argument is    * configuring the source step of the Launch Instance Wizard.
 !!!+!dpogjhvsjoh!uif!tpvsdf!tufq!pg!uif!Mbvodi!Jotubodf!Xj{bse/
-the 1 argument is    *
 !!!+
-the 1 argument is    */
 !!!+0
-the 1 argument is   var push = [].push;
 !!wbs!qvti!>!\^/qvti<
-the 1 argument is 
 
-the 1 argument is   angular
 !!bohvmbs
-the 1 argument is     .module('horizon.dashboard.project.workflow.launch-instance')
 !!!!/npevmf)(ipsj{po/ebticpbse/qspkfdu/xpslgmpx/mbvodi.jotubodf(*
-the 1 argument is     .controller('LaunchInstanceSourceController', LaunchInstanceSourceController);
 !!!!/dpouspmmfs)(MbvodiJotubodfTpvsdfDpouspmmfs(-!MbvodiJotubodfTpvsdfDpouspmmfs*<
-the 1 argument is 
 
-the 1 argument is   LaunchInstanceSourceController.$inject = [
 !!MbvodiJotubodfTpvsdfDpouspmmfs/%jokfdu!>!\
-the 1 argument is     '$scope',
 !!!!(%tdpqf(-
-the 1 argument is     'horizon.dashboard.project.workflow.launch-instance.boot-source-types',
 !!!!(ipsj{po/ebticpbse/qspkfdu/xpslgmpx/mbvodi.jotubodf/cppu.tpvsdf.uzqft(-
-the 1 argument is     'bytesFilter',
 !!!!(czuftGjmufs(-
-the 1 argument is     'dateFilter',
 !!!!(ebufGjmufs(-
-the 1 argument is     'decodeFilter',
 !!!!(efdpefGjmufs(-
-the 1 argument is     'diskFormatFilter',
 !!!!(ejtlGpsnbuGjmufs(-
-the 1 argument is     'gbFilter',
 !!!!(hcGjmufs(-
-the 1 argument is     'horizon.dashboard.project.workflow.launch-instance.basePath',
 !!!!(ipsj{po/ebticpbse/qspkfdu/xpslgmpx/mbvodi.jotubodf/cbtfQbui(-
-the 1 argument is     'horizon.framework.widgets.transfer-table.events'
 !!!!(ipsj{po/gsbnfxpsl/xjehfut/usbotgfs.ubcmf/fwfout(
-the 1 argument is   ];
 !!^<
-the 1 argument is 
 
-the 1 argument is   function LaunchInstanceSourceController($scope,
 !!gvodujpo!MbvodiJotubodfTpvsdfDpouspmmfs)%tdpqf-
-the 1 argument is     bootSourceTypes,
 !!!!cppuTpvsdfUzqft-
-the 1 argument is     bytesFilter,
 !!!!czuftGjmufs-
-the 1 argument is     dateFilter,
 !!!!ebufGjmufs-
-the 1 argument is     decodeFilter,
 !!!!efdpefGjmufs-
-the 1 argument is     diskFormatFilter,
 !!!!ejtlGpsnbuGjmufs-
-the 1 argument is     gbFilter,
 !!!!hcGjmufs-
-the 1 argument is     basePath,
 !!!!cbtfQbui-
-the 1 argument is     events
 !!!!fwfout
-the 1 argument is   ) {
 !!*!|
-the 1 argument is 
 
-the 1 argument is     var ctrl = this;
 !!!!wbs!dusm!>!uijt<
-the 1 argument is 
 
-the 1 argument is     // Error text for invalid fields
 !!!!00!Fssps!ufyu!gps!jowbmje!gjfmet
-the 1 argument is     /*eslint-disable max-len */
 !!!!0+ftmjou.ejtbcmf!nby.mfo!+0
-the 1 argument is     ctrl.bootSourceTypeError = gettext('Volumes can only be attached to 1 active instance at a time. Please either set your instance count to 1 or select a different source type.');
 !!!!dusm/cppuTpvsdfUzqfFssps!>!hfuufyu)(Wpmvnft!dbo!pomz!cf!buubdife!up!2!bdujwf!jotubodf!bu!b!ujnf/!Qmfbtf!fjuifs!tfu!zpvs!jotubodf!dpvou!up!2!ps!tfmfdu!b!ejggfsfou!tpvsdf!uzqf/(*<
-the 1 argument is     /*eslint-enable max-len */
 !!!!0+ftmjou.fobcmf!nby.mfo!+0
-the 1 argument is     ctrl.volumeSizeError = gettext('Volume size is required and must be an integer');
 !!!!dusm/wpmvnfTj{fFssps!>!hfuufyu)(Wpmvnf!tj{f!jt!sfrvjsfe!boe!nvtu!cf!bo!joufhfs(*<
-the 1 argument is 
 
-the 1 argument is     // toggle button label/value defaults
 !!!!00!uphhmf!cvuupo!mbcfm0wbmvf!efgbvmut
-the 1 argument is     ctrl.toggleButtonOptions = [
 !!!!dusm/uphhmfCvuupoPqujpot!>!\
-the 1 argument is       { label: gettext('Yes'), value: true },
 !!!!!!|!mbcfm;!hfuufyu)(Zft(*-!wbmvf;!usvf!~-
-the 1 argument is       { label: gettext('No'), value: false }
 !!!!!!|!mbcfm;!hfuufyu)(Op(*-!wbmvf;!gbmtf!~
-the 1 argument is     ];
 !!!!^<
-the 1 argument is 
 
-the 1 argument is     /*
 !!!!0+
-the 1 argument is      * Boot Sources
 !!!!!+!Cppu!Tpvsdft
-the 1 argument is      */
 !!!!!+0
-the 1 argument is     ctrl.bootSourcesOptions = [
 !!!!dusm/cppuTpvsdftPqujpot!>!\
-the 1 argument is       { type: bootSourceTypes.IMAGE, label: gettext('Image') },
 !!!!!!|!uzqf;!cppuTpvsdfUzqft/JNBHF-!mbcfm;!hfuufyu)(Jnbhf(*!~-
-the 1 argument is       { type: bootSourceTypes.INSTANCE_SNAPSHOT, label: gettext('Instance Snapshot') },
 !!!!!!|!uzqf;!cppuTpvsdfUzqft/JOTUBODF`TOBQTIPU-!mbcfm;!hfuufyu)(Jotubodf!Tobqtipu(*!~-
-the 1 argument is       { type: bootSourceTypes.VOLUME, label: gettext('Volume') },
 !!!!!!|!uzqf;!cppuTpvsdfUzqft/WPMVNF-!mbcfm;!hfuufyu)(Wpmvnf(*!~-
-the 1 argument is       { type: bootSourceTypes.VOLUME_SNAPSHOT, label: gettext('Volume Snapshot') }
 !!!!!!|!uzqf;!cppuTpvsdfUzqft/WPMVNF`TOBQTIPU-!mbcfm;!hfuufyu)(Wpmvnf!Tobqtipu(*!~
-the 1 argument is     ];
 !!!!^<
-the 1 argument is 
 
-the 1 argument is     ctrl.updateBootSourceSelection = updateBootSourceSelection;
 !!!!dusm/vqebufCppuTpvsdfTfmfdujpo!>!vqebufCppuTpvsdfTfmfdujpo<
-the 1 argument is     ctrl.ValidateSgxMemory = ValidateSgxMemory;
 !!!!dusm/WbmjebufThyNfnpsz!>!WbmjebufThyNfnpsz<
-the 1 argument is 
 
-the 1 argument is     /*
 !!!!0+
-the 1 argument is      * Transfer table
 !!!!!+!Usbotgfs!ubcmf
-the 1 argument is      */
 !!!!!+0
-the 1 argument is     ctrl.tableHeadCells = [];
 !!!!dusm/ubcmfIfbeDfmmt!>!\^<
-the 1 argument is     ctrl.tableBodyCells = [];
 !!!!dusm/ubcmfCpezDfmmt!>!\^<
-the 1 argument is     ctrl.tableData = {};
 !!!!dusm/ubcmfEbub!>!|~<
-the 1 argument is     ctrl.helpText = {};
 !!!!dusm/ifmqUfyu!>!|~<
-the 1 argument is     ctrl.sourceDetails = basePath + 'source/source-details.html';
 !!!!dusm/tpvsdfEfubjmt!>!cbtfQbui!,!(tpvsdf0tpvsdf.efubjmt/iunm(<
-the 1 argument is 
 
-the 1 argument is     var selection = ctrl.selection = $scope.model.newInstanceSpec.source;
 !!!!wbs!tfmfdujpo!>!dusm/tfmfdujpo!>!%tdpqf/npefm/ofxJotubodfTqfd/tpvsdf<
-the 1 argument is 
 
-the 1 argument is     var bootSources = {
 !!!!wbs!cppuTpvsdft!>!|
-the 1 argument is       image: {
 !!!!!!jnbhf;!|
-the 1 argument is         available: $scope.model.images,
 !!!!!!!!bwbjmbcmf;!%tdpqf/npefm/jnbhft-
-the 1 argument is         allocated: selection,
 !!!!!!!!bmmpdbufe;!tfmfdujpo-
-the 1 argument is         displayedAvailable: $scope.model.images,
 !!!!!!!!ejtqmbzfeBwbjmbcmf;!%tdpqf/npefm/jnbhft-
-the 1 argument is         displayedAllocated: selection
 !!!!!!!!ejtqmbzfeBmmpdbufe;!tfmfdujpo
-the 1 argument is       },
 !!!!!!~-
-the 1 argument is       snapshot: {
 !!!!!!tobqtipu;!|
-the 1 argument is         available: $scope.model.imageSnapshots,
 !!!!!!!!bwbjmbcmf;!%tdpqf/npefm/jnbhfTobqtiput-
-the 1 argument is         allocated: selection,
 !!!!!!!!bmmpdbufe;!tfmfdujpo-
-the 1 argument is         displayedAvailable: [],
 !!!!!!!!ejtqmbzfeBwbjmbcmf;!\^-
-the 1 argument is         displayedAllocated: selection
 !!!!!!!!ejtqmbzfeBmmpdbufe;!tfmfdujpo
-the 1 argument is       },
 !!!!!!~-
-the 1 argument is       volume: {
 !!!!!!wpmvnf;!|
-the 1 argument is         available: $scope.model.volumes,
 !!!!!!!!bwbjmbcmf;!%tdpqf/npefm/wpmvnft-
-the 1 argument is         allocated: selection,
 !!!!!!!!bmmpdbufe;!tfmfdujpo-
-the 1 argument is         displayedAvailable: [],
 !!!!!!!!ejtqmbzfeBwbjmbcmf;!\^-
-the 1 argument is         displayedAllocated: selection
 !!!!!!!!ejtqmbzfeBmmpdbufe;!tfmfdujpo
-the 1 argument is       },
 !!!!!!~-
-the 1 argument is       volume_snapshot: {
 !!!!!!wpmvnf`tobqtipu;!|
-the 1 argument is         available: $scope.model.volumeSnapshots,
 !!!!!!!!bwbjmbcmf;!%tdpqf/npefm/wpmvnfTobqtiput-
-the 1 argument is         allocated: selection,
 !!!!!!!!bmmpdbufe;!tfmfdujpo-
-the 1 argument is         displayedAvailable: [],
 !!!!!!!!ejtqmbzfeBwbjmbcmf;!\^-
-the 1 argument is         displayedAllocated: selection
 !!!!!!!!ejtqmbzfeBmmpdbufe;!tfmfdujpo
-the 1 argument is       }
 !!!!!!~
-the 1 argument is     };
 !!!!~<
-the 1 argument is 
 
-the 1 argument is     var diskFormats = [
 !!!!wbs!ejtlGpsnbut!>!\
-the 1 argument is       { label: gettext('AKI'), key: 'aki' },
 !!!!!!|!mbcfm;!hfuufyu)(BLJ(*-!lfz;!(blj(!~-
-the 1 argument is       { label: gettext('AMI'), key: 'ami' },
 !!!!!!|!mbcfm;!hfuufyu)(BNJ(*-!lfz;!(bnj(!~-
-the 1 argument is       { label: gettext('ARI'), key: 'ari' },
 !!!!!!|!mbcfm;!hfuufyu)(BSJ(*-!lfz;!(bsj(!~-
-the 1 argument is       { label: gettext('Docker'), key: 'docker' },
 !!!!!!|!mbcfm;!hfuufyu)(Epdlfs(*-!lfz;!(epdlfs(!~-
-the 1 argument is       { label: gettext('ISO'), key: 'iso' },
 !!!!!!|!mbcfm;!hfuufyu)(JTP(*-!lfz;!(jtp(!~-
-the 1 argument is       { label: gettext('OVA'), key: 'ova' },
 !!!!!!|!mbcfm;!hfuufyu)(PWB(*-!lfz;!(pwb(!~-
-the 1 argument is       { label: gettext('QCOW2'), key: 'qcow2' },
 !!!!!!|!mbcfm;!hfuufyu)(RDPX3(*-!lfz;!(rdpx3(!~-
-the 1 argument is       { label: gettext('RAW'), key: 'raw' },
 !!!!!!|!mbcfm;!hfuufyu)(SBX(*-!lfz;!(sbx(!~-
-the 1 argument is       { label: gettext('VDI'), key: 'vdi' },
 !!!!!!|!mbcfm;!hfuufyu)(WEJ(*-!lfz;!(wej(!~-
-the 1 argument is       { label: gettext('VHD'), key: 'vhd' },
 !!!!!!|!mbcfm;!hfuufyu)(WIE(*-!lfz;!(wie(!~-
-the 1 argument is       { label: gettext('VMDK'), key: 'vmdk' }
 !!!!!!|!mbcfm;!hfuufyu)(WNEL(*-!lfz;!(wnel(!~
-the 1 argument is     ];
 !!!!^<
-the 1 argument is 
 
-the 1 argument is     // Mapping for dynamic table headers
 !!!!00!Nbqqjoh!gps!ezobnjd!ubcmf!ifbefst
-the 1 argument is     var tableHeadCellsMap = {
 !!!!wbs!ubcmfIfbeDfmmtNbq!>!|
-the 1 argument is       image: [
 !!!!!!jnbhf;!\
-the 1 argument is         { text: gettext('Name'), style: { width: '30%' }, sortable: true, sortDefault: true },
 !!!!!!!!|!ufyu;!hfuufyu)(Obnf(*-!tuzmf;!|!xjeui;!(41&(!~-!tpsubcmf;!usvf-!tpsuEfgbvmu;!usvf!~-
-the 1 argument is         { text: gettext('Updated'), style: { width: '15%' }, sortable: true },
 !!!!!!!!|!ufyu;!hfuufyu)(Vqebufe(*-!tuzmf;!|!xjeui;!(26&(!~-!tpsubcmf;!usvf!~-
-the 1 argument is         { text: gettext('Size'), style: { width: '15%' }, classList: ['number'], sortable: true },
 !!!!!!!!|!ufyu;!hfuufyu)(Tj{f(*-!tuzmf;!|!xjeui;!(26&(!~-!dmbttMjtu;!\(ovncfs(^-!tpsubcmf;!usvf!~-
-the 1 argument is         { text: gettext('Type'), sortable: true },
 !!!!!!!!|!ufyu;!hfuufyu)(Uzqf(*-!tpsubcmf;!usvf!~-
-the 1 argument is         { text: gettext('Visibility'), sortable: true }
 !!!!!!!!|!ufyu;!hfuufyu)(Wjtjcjmjuz(*-!tpsubcmf;!usvf!~
-the 1 argument is       ],
 !!!!!!^-
-the 1 argument is       snapshot: [
 !!!!!!tobqtipu;!\
-the 1 argument is         { text: gettext('Name'), style: { width: '30%' }, sortable: true, sortDefault: true },
 !!!!!!!!|!ufyu;!hfuufyu)(Obnf(*-!tuzmf;!|!xjeui;!(41&(!~-!tpsubcmf;!usvf-!tpsuEfgbvmu;!usvf!~-
-the 1 argument is         { text: gettext('Updated'), style: { width: '15%' }, sortable: true },
 !!!!!!!!|!ufyu;!hfuufyu)(Vqebufe(*-!tuzmf;!|!xjeui;!(26&(!~-!tpsubcmf;!usvf!~-
-the 1 argument is         { text: gettext('Size'), style: { width: '15%' }, classList: ['number'], sortable: true },
 !!!!!!!!|!ufyu;!hfuufyu)(Tj{f(*-!tuzmf;!|!xjeui;!(26&(!~-!dmbttMjtu;!\(ovncfs(^-!tpsubcmf;!usvf!~-
-the 1 argument is         { text: gettext('Type'), sortable: true },
 !!!!!!!!|!ufyu;!hfuufyu)(Uzqf(*-!tpsubcmf;!usvf!~-
-the 1 argument is         { text: gettext('Visibility'), sortable: true }
 !!!!!!!!|!ufyu;!hfuufyu)(Wjtjcjmjuz(*-!tpsubcmf;!usvf!~
-the 1 argument is       ],
 !!!!!!^-
-the 1 argument is       volume: [
 !!!!!!wpmvnf;!\
-the 1 argument is         { text: gettext('Name'), style: { width: '25%' }, sortable: true, sortDefault: true },
 !!!!!!!!|!ufyu;!hfuufyu)(Obnf(*-!tuzmf;!|!xjeui;!(36&(!~-!tpsubcmf;!usvf-!tpsuEfgbvmu;!usvf!~-
-the 1 argument is         { text: gettext('Description'), style: { width: '20%' }, sortable: true },
 !!!!!!!!|!ufyu;!hfuufyu)(Eftdsjqujpo(*-!tuzmf;!|!xjeui;!(31&(!~-!tpsubcmf;!usvf!~-
-the 1 argument is         { text: gettext('Size'), style: { width: '15%' }, classList: ['number'], sortable: true },
 !!!!!!!!|!ufyu;!hfuufyu)(Tj{f(*-!tuzmf;!|!xjeui;!(26&(!~-!dmbttMjtu;!\(ovncfs(^-!tpsubcmf;!usvf!~-
-the 1 argument is         { text: gettext('Type'), style: { width: '20%' }, sortable: true },
 !!!!!!!!|!ufyu;!hfuufyu)(Uzqf(*-!tuzmf;!|!xjeui;!(31&(!~-!tpsubcmf;!usvf!~-
-the 1 argument is         { text: gettext('Availability Zone'), style: { width: '20%' }, sortable: true }
 !!!!!!!!|!ufyu;!hfuufyu)(Bwbjmbcjmjuz![pof(*-!tuzmf;!|!xjeui;!(31&(!~-!tpsubcmf;!usvf!~
-the 1 argument is       ],
 !!!!!!^-
-the 1 argument is       volume_snapshot: [
 !!!!!!wpmvnf`tobqtipu;!\
-the 1 argument is         { text: gettext('Name'), style: { width: '25%' }, sortable: true, sortDefault: true },
 !!!!!!!!|!ufyu;!hfuufyu)(Obnf(*-!tuzmf;!|!xjeui;!(36&(!~-!tpsubcmf;!usvf-!tpsuEfgbvmu;!usvf!~-
-the 1 argument is         { text: gettext('Description'), style: { width: '20%' }, sortable: true },
 !!!!!!!!|!ufyu;!hfuufyu)(Eftdsjqujpo(*-!tuzmf;!|!xjeui;!(31&(!~-!tpsubcmf;!usvf!~-
-the 1 argument is         { text: gettext('Size'), style: { width: '15%' }, classList: ['number'], sortable: true },
 !!!!!!!!|!ufyu;!hfuufyu)(Tj{f(*-!tuzmf;!|!xjeui;!(26&(!~-!dmbttMjtu;!\(ovncfs(^-!tpsubcmf;!usvf!~-
-the 1 argument is         { text: gettext('Created'), style: { width: '15%' }, sortable: true },
 !!!!!!!!|!ufyu;!hfuufyu)(Dsfbufe(*-!tuzmf;!|!xjeui;!(26&(!~-!tpsubcmf;!usvf!~-
-the 1 argument is         { text: gettext('Status'), style: { width: '20%' }, sortable: true }
 !!!!!!!!|!ufyu;!hfuufyu)(Tubuvt(*-!tuzmf;!|!xjeui;!(31&(!~-!tpsubcmf;!usvf!~
-the 1 argument is       ]
 !!!!!!^
-the 1 argument is     };
 !!!!~<
-the 1 argument is 
 
-the 1 argument is     // Map Visibility data so we can decode true/false to Public/Private
 !!!!00!Nbq!Wjtjcjmjuz!ebub!tp!xf!dbo!efdpef!usvf0gbmtf!up!Qvcmjd0Qsjwbuf
-the 1 argument is     var _visibilitymap = { true: gettext('Public'), false: gettext('Private') };
 !!!!wbs!`wjtjcjmjuznbq!>!|!usvf;!hfuufyu)(Qvcmjd(*-!gbmtf;!hfuufyu)(Qsjwbuf(*!~<
-the 1 argument is 
 
-the 1 argument is     // Mapping for dynamic table data
 !!!!00!Nbqqjoh!gps!ezobnjd!ubcmf!ebub
-the 1 argument is     var tableBodyCellsMap = {
 !!!!wbs!ubcmfCpezDfmmtNbq!>!|
-the 1 argument is       image: [
 !!!!!!jnbhf;!\
-the 1 argument is         { key: 'name', classList: ['hi-light'] },
 !!!!!!!!|!lfz;!(obnf(-!dmbttMjtu;!\(ij.mjhiu(^!~-
-the 1 argument is         { key: 'updated_at', filter: dateFilter, filterArg: 'short' },
 !!!!!!!!|!lfz;!(vqebufe`bu(-!gjmufs;!ebufGjmufs-!gjmufsBsh;!(tipsu(!~-
-the 1 argument is         { key: 'size', filter: bytesFilter, classList: ['number'] },
 !!!!!!!!|!lfz;!(tj{f(-!gjmufs;!czuftGjmufs-!dmbttMjtu;!\(ovncfs(^!~-
-the 1 argument is         { key: 'disk_format', style: { 'text-transform': 'uppercase' },
 !!!!!!!!|!lfz;!(ejtl`gpsnbu(-!tuzmf;!|!(ufyu.usbotgpsn(;!(vqqfsdbtf(!~-
-the 1 argument is           filter: diskFormatFilter, filterRawData: true },
 !!!!!!!!!!gjmufs;!ejtlGpsnbuGjmufs-!gjmufsSbxEbub;!usvf!~-
-the 1 argument is         { key: 'is_public', filter: decodeFilter, filterArg: _visibilitymap,
 !!!!!!!!|!lfz;!(jt`qvcmjd(-!gjmufs;!efdpefGjmufs-!gjmufsBsh;!`wjtjcjmjuznbq-
-the 1 argument is           style: { 'text-transform': 'capitalize' } }
 !!!!!!!!!!tuzmf;!|!(ufyu.usbotgpsn(;!(dbqjubmj{f(!~!~
-the 1 argument is       ],
 !!!!!!^-
-the 1 argument is       snapshot: [
 !!!!!!tobqtipu;!\
-the 1 argument is         { key: 'name', classList: ['hi-light'] },
 !!!!!!!!|!lfz;!(obnf(-!dmbttMjtu;!\(ij.mjhiu(^!~-
-the 1 argument is         { key: 'updated_at', filter: dateFilter, filterArg: 'short' },
 !!!!!!!!|!lfz;!(vqebufe`bu(-!gjmufs;!ebufGjmufs-!gjmufsBsh;!(tipsu(!~-
-the 1 argument is         { key: 'size', filter: bytesFilter, classList: ['number'] },
 !!!!!!!!|!lfz;!(tj{f(-!gjmufs;!czuftGjmufs-!dmbttMjtu;!\(ovncfs(^!~-
-the 1 argument is         { key: 'disk_format', style: { 'text-transform': 'uppercase' },
 !!!!!!!!|!lfz;!(ejtl`gpsnbu(-!tuzmf;!|!(ufyu.usbotgpsn(;!(vqqfsdbtf(!~-
-the 1 argument is           filter: diskFormatFilter, filterRawData: true },
 !!!!!!!!!!gjmufs;!ejtlGpsnbuGjmufs-!gjmufsSbxEbub;!usvf!~-
-the 1 argument is         { key: 'is_public', filter: decodeFilter, filterArg: _visibilitymap,
 !!!!!!!!|!lfz;!(jt`qvcmjd(-!gjmufs;!efdpefGjmufs-!gjmufsBsh;!`wjtjcjmjuznbq-
-the 1 argument is           style: { 'text-transform': 'capitalize' } }
 !!!!!!!!!!tuzmf;!|!(ufyu.usbotgpsn(;!(dbqjubmj{f(!~!~
-the 1 argument is       ],
 !!!!!!^-
-the 1 argument is       volume: [
 !!!!!!wpmvnf;!\
-the 1 argument is         { key: 'name', classList: ['hi-light'] },
 !!!!!!!!|!lfz;!(obnf(-!dmbttMjtu;!\(ij.mjhiu(^!~-
-the 1 argument is         { key: 'description' },
 !!!!!!!!|!lfz;!(eftdsjqujpo(!~-
-the 1 argument is         { key: 'size', filter: gbFilter, classList: ['number'] },
 !!!!!!!!|!lfz;!(tj{f(-!gjmufs;!hcGjmufs-!dmbttMjtu;!\(ovncfs(^!~-
-the 1 argument is         { key: 'volume_image_metadata', filter: diskFormatFilter,
 !!!!!!!!|!lfz;!(wpmvnf`jnbhf`nfubebub(-!gjmufs;!ejtlGpsnbuGjmufs-
-the 1 argument is           style: { 'text-transform': 'uppercase' } },
 !!!!!!!!!!tuzmf;!|!(ufyu.usbotgpsn(;!(vqqfsdbtf(!~!~-
-the 1 argument is         { key: 'availability_zone' }
 !!!!!!!!|!lfz;!(bwbjmbcjmjuz`{pof(!~
-the 1 argument is       ],
 !!!!!!^-
-the 1 argument is       volume_snapshot: [
 !!!!!!wpmvnf`tobqtipu;!\
-the 1 argument is         { key: 'name', classList: ['hi-light'] },
 !!!!!!!!|!lfz;!(obnf(-!dmbttMjtu;!\(ij.mjhiu(^!~-
-the 1 argument is         { key: 'description' },
 !!!!!!!!|!lfz;!(eftdsjqujpo(!~-
-the 1 argument is         { key: 'size', filter: gbFilter, classList: ['number'] },
 !!!!!!!!|!lfz;!(tj{f(-!gjmufs;!hcGjmufs-!dmbttMjtu;!\(ovncfs(^!~-
-the 1 argument is         { key: 'created_at', filter: dateFilter, filterArg: 'short' },
 !!!!!!!!|!lfz;!(dsfbufe`bu(-!gjmufs;!ebufGjmufs-!gjmufsBsh;!(tipsu(!~-
-the 1 argument is         { key: 'status', style: { 'text-transform': 'capitalize' } }
 !!!!!!!!|!lfz;!(tubuvt(-!tuzmf;!|!(ufyu.usbotgpsn(;!(dbqjubmj{f(!~!~
-the 1 argument is       ]
 !!!!!!^
-the 1 argument is     };
 !!!!~<
-the 1 argument is 
 
-the 1 argument is     /**
 !!!!0++
-the 1 argument is      * Filtering - client-side MagicSearch
 !!!!!+!Gjmufsjoh!.!dmjfou.tjef!NbhjdTfbsdi
-the 1 argument is      */
 !!!!!+0
-the 1 argument is     ctrl.sourceFacets = [];
 !!!!dusm/tpvsdfGbdfut!>!\^<
-the 1 argument is 
 
-the 1 argument is     // All facets for source step
 !!!!00!Bmm!gbdfut!gps!tpvsdf!tufq
-the 1 argument is     var facets = {
 !!!!wbs!gbdfut!>!|
-the 1 argument is       created: {
 !!!!!!dsfbufe;!|
-the 1 argument is         label: gettext('Created'),
 !!!!!!!!mbcfm;!hfuufyu)(Dsfbufe(*-
-the 1 argument is         name: 'created_at',
 !!!!!!!!obnf;!(dsfbufe`bu(-
-the 1 argument is         singleton: true
 !!!!!!!!tjohmfupo;!usvf
-the 1 argument is       },
 !!!!!!~-
-the 1 argument is       description: {
 !!!!!!eftdsjqujpo;!|
-the 1 argument is         label: gettext('Description'),
 !!!!!!!!mbcfm;!hfuufyu)(Eftdsjqujpo(*-
-the 1 argument is         name: 'description',
 !!!!!!!!obnf;!(eftdsjqujpo(-
-the 1 argument is         singleton: true
 !!!!!!!!tjohmfupo;!usvf
-the 1 argument is       },
 !!!!!!~-
-the 1 argument is       encrypted: {
 !!!!!!fodszqufe;!|
-the 1 argument is         label: gettext('Encrypted'),
 !!!!!!!!mbcfm;!hfuufyu)(Fodszqufe(*-
-the 1 argument is         name: 'encrypted',
 !!!!!!!!obnf;!(fodszqufe(-
-the 1 argument is         singleton: true,
 !!!!!!!!tjohmfupo;!usvf-
-the 1 argument is         options: [
 !!!!!!!!pqujpot;!\
-the 1 argument is           { label: gettext('Yes'), key: 'true' },
 !!!!!!!!!!|!mbcfm;!hfuufyu)(Zft(*-!lfz;!(usvf(!~-
-the 1 argument is           { label: gettext('No'), key: 'false' }
 !!!!!!!!!!|!mbcfm;!hfuufyu)(Op(*-!lfz;!(gbmtf(!~
-the 1 argument is         ]
 !!!!!!!!^
-the 1 argument is       },
 !!!!!!~-
-the 1 argument is       name: {
 !!!!!!obnf;!|
-the 1 argument is         label: gettext('Name'),
 !!!!!!!!mbcfm;!hfuufyu)(Obnf(*-
-the 1 argument is         name: 'name',
 !!!!!!!!obnf;!(obnf(-
-the 1 argument is         singleton: true
 !!!!!!!!tjohmfupo;!usvf
-the 1 argument is       },
 !!!!!!~-
-the 1 argument is       size: {
 !!!!!!tj{f;!|
-the 1 argument is         label: gettext('Size'),
 !!!!!!!!mbcfm;!hfuufyu)(Tj{f(*-
-the 1 argument is         name: 'size',
 !!!!!!!!obnf;!(tj{f(-
-the 1 argument is         singleton: true
 !!!!!!!!tjohmfupo;!usvf
-the 1 argument is       },
 !!!!!!~-
-the 1 argument is       status: {
 !!!!!!tubuvt;!|
-the 1 argument is         label: gettext('Status'),
 !!!!!!!!mbcfm;!hfuufyu)(Tubuvt(*-
-the 1 argument is         name: 'status',
 !!!!!!!!obnf;!(tubuvt(-
-the 1 argument is         singleton: true,
 !!!!!!!!tjohmfupo;!usvf-
-the 1 argument is         options: [
 !!!!!!!!pqujpot;!\
-the 1 argument is           { label: gettext('Available'), key: 'available' },
 !!!!!!!!!!|!mbcfm;!hfuufyu)(Bwbjmbcmf(*-!lfz;!(bwbjmbcmf(!~-
-the 1 argument is           { label: gettext('Creating'), key: 'creating' },
 !!!!!!!!!!|!mbcfm;!hfuufyu)(Dsfbujoh(*-!lfz;!(dsfbujoh(!~-
-the 1 argument is           { label: gettext('Deleting'), key: 'deleting' },
 !!!!!!!!!!|!mbcfm;!hfuufyu)(Efmfujoh(*-!lfz;!(efmfujoh(!~-
-the 1 argument is           { label: gettext('Error'), key: 'error' },
 !!!!!!!!!!|!mbcfm;!hfuufyu)(Fssps(*-!lfz;!(fssps(!~-
-the 1 argument is           { label: gettext('Error Deleting'), key: 'error_deleting' }
 !!!!!!!!!!|!mbcfm;!hfuufyu)(Fssps!Efmfujoh(*-!lfz;!(fssps`efmfujoh(!~
-the 1 argument is         ]
 !!!!!!!!^
-the 1 argument is       },
 !!!!!!~-
-the 1 argument is       type: {
 !!!!!!uzqf;!|
-the 1 argument is         label: gettext('Type'),
 !!!!!!!!mbcfm;!hfuufyu)(Uzqf(*-
-the 1 argument is         name: 'disk_format',
 !!!!!!!!obnf;!(ejtl`gpsnbu(-
-the 1 argument is         singleton: true,
 !!!!!!!!tjohmfupo;!usvf-
-the 1 argument is         options: diskFormats
 !!!!!!!!pqujpot;!ejtlGpsnbut
-the 1 argument is       },
 !!!!!!~-
-the 1 argument is       updated: {
 !!!!!!vqebufe;!|
-the 1 argument is         label: gettext('Updated'),
 !!!!!!!!mbcfm;!hfuufyu)(Vqebufe(*-
-the 1 argument is         name: 'updated_at',
 !!!!!!!!obnf;!(vqebufe`bu(-
-the 1 argument is         singleton: true
 !!!!!!!!tjohmfupo;!usvf
-the 1 argument is       },
 !!!!!!~-
-the 1 argument is       visibility: {
 !!!!!!wjtjcjmjuz;!|
-the 1 argument is         label: gettext('Visibility'),
 !!!!!!!!mbcfm;!hfuufyu)(Wjtjcjmjuz(*-
-the 1 argument is         name: 'is_public',
 !!!!!!!!obnf;!(jt`qvcmjd(-
-the 1 argument is         singleton: true,
 !!!!!!!!tjohmfupo;!usvf-
-the 1 argument is         options: [
 !!!!!!!!pqujpot;!\
-the 1 argument is           { label: gettext('Public'), key: 'true' },
 !!!!!!!!!!|!mbcfm;!hfuufyu)(Qvcmjd(*-!lfz;!(usvf(!~-
-the 1 argument is           { label: gettext('Private'), key: 'false' }
 !!!!!!!!!!|!mbcfm;!hfuufyu)(Qsjwbuf(*-!lfz;!(gbmtf(!~
-the 1 argument is         ]
 !!!!!!!!^
-the 1 argument is       },
 !!!!!!~-
-the 1 argument is       volumeType: {
 !!!!!!wpmvnfUzqf;!|
-the 1 argument is         label: gettext('Type'),
 !!!!!!!!mbcfm;!hfuufyu)(Uzqf(*-
-the 1 argument is         name: 'volume_image_metadata.disk_format',
 !!!!!!!!obnf;!(wpmvnf`jnbhf`nfubebub/ejtl`gpsnbu(-
-the 1 argument is         singleton: true,
 !!!!!!!!tjohmfupo;!usvf-
-the 1 argument is         options: diskFormats
 !!!!!!!!pqujpot;!ejtlGpsnbut
-the 1 argument is       }
 !!!!!!~
-the 1 argument is     };
 !!!!~<
-the 1 argument is 
 
-the 1 argument is     // Mapping for filter facets based on boot source type
 !!!!00!Nbqqjoh!gps!gjmufs!gbdfut!cbtfe!po!cppu!tpvsdf!uzqf
-the 1 argument is     var sourceTypeFacets = {
 !!!!wbs!tpvsdfUzqfGbdfut!>!|
-the 1 argument is       image: [
 !!!!!!jnbhf;!\
-the 1 argument is         facets.name, facets.updated, facets.size, facets.type, facets.visibility
 !!!!!!!!gbdfut/obnf-!gbdfut/vqebufe-!gbdfut/tj{f-!gbdfut/uzqf-!gbdfut/wjtjcjmjuz
-the 1 argument is       ],
 !!!!!!^-
-the 1 argument is       snapshot: [
 !!!!!!tobqtipu;!\
-the 1 argument is         facets.name, facets.updated, facets.size, facets.type, facets.visibility
 !!!!!!!!gbdfut/obnf-!gbdfut/vqebufe-!gbdfut/tj{f-!gbdfut/uzqf-!gbdfut/wjtjcjmjuz
-the 1 argument is       ],
 !!!!!!^-
-the 1 argument is       volume: [
 !!!!!!wpmvnf;!\
-the 1 argument is         facets.name, facets.description, facets.size, facets.volumeType, facets.encrypted
 !!!!!!!!gbdfut/obnf-!gbdfut/eftdsjqujpo-!gbdfut/tj{f-!gbdfut/wpmvnfUzqf-!gbdfut/fodszqufe
-the 1 argument is       ],
 !!!!!!^-
-the 1 argument is       volume_snapshot: [
 !!!!!!wpmvnf`tobqtipu;!\
-the 1 argument is         facets.name, facets.description, facets.size, facets.created, facets.status
 !!!!!!!!gbdfut/obnf-!gbdfut/eftdsjqujpo-!gbdfut/tj{f-!gbdfut/dsfbufe-!gbdfut/tubuvt
-the 1 argument is       ]
 !!!!!!^
-the 1 argument is     };
 !!!!~<
-the 1 argument is 
 
-the 1 argument is     var newSpecWatcher = $scope.$watch(
 !!!!wbs!ofxTqfdXbudifs!>!%tdpqf/%xbudi)
-the 1 argument is       function () {
 !!!!!!gvodujpo!)*!|
-the 1 argument is         return $scope.model.newInstanceSpec.instance_count;
 !!!!!!!!sfuvso!%tdpqf/npefm/ofxJotubodfTqfd/jotubodf`dpvou<
-the 1 argument is       },
 !!!!!!~-
-the 1 argument is       function (newValue, oldValue) {
 !!!!!!gvodujpo!)ofxWbmvf-!pmeWbmvf*!|
-the 1 argument is         if (newValue !== oldValue) {
 !!!!!!!!jg!)ofxWbmvf!">>!pmeWbmvf*!|
-the 1 argument is           validateBootSourceType();
 !!!!!!!!!!wbmjebufCppuTpvsdfUzqf)*<
-the 1 argument is         }
 !!!!!!!!~
-the 1 argument is       }
 !!!!!!~
-the 1 argument is     );
 !!!!*<
-the 1 argument is 
 
-the 1 argument is     var allocatedWatcher = $scope.$watch(
 !!!!wbs!bmmpdbufeXbudifs!>!%tdpqf/%xbudi)
-the 1 argument is       function () {
 !!!!!!gvodujpo!)*!|
-the 1 argument is         return ctrl.tableData.allocated.length;
 !!!!!!!!sfuvso!dusm/ubcmfEbub/bmmpdbufe/mfohui<
-the 1 argument is       },
 !!!!!!~-
-the 1 argument is       function (newValue) {
 !!!!!!gvodujpo!)ofxWbmvf*!|
-the 1 argument is         checkVolumeForImage(newValue);
 !!!!!!!!difdlWpmvnfGpsJnbhf)ofxWbmvf*<
-the 1 argument is       }
 !!!!!!~
-the 1 argument is     );
 !!!!*<
-the 1 argument is 
 
-the 1 argument is     // Since available transfer table for Launch Instance Source step is
 !!!!00!Tjodf!bwbjmbcmf!usbotgfs!ubcmf!gps!Mbvodi!Jotubodf!Tpvsdf!tufq!jt
-the 1 argument is     // dynamically selected based on Boot Source, we need to update the
 !!!!00!ezobnjdbmmz!tfmfdufe!cbtfe!po!Cppu!Tpvsdf-!xf!offe!up!vqebuf!uif
-the 1 argument is     // model here accordingly. Otherwise it will only calculate the items
 !!!!00!npefm!ifsf!bddpsejohmz/!Puifsxjtf!ju!xjmm!pomz!dbmdvmbuf!uif!jufnt
-the 1 argument is     // available based on the original selection Boot Source: Image.
 !!!!00!bwbjmbcmf!cbtfe!po!uif!psjhjobm!tfmfdujpo!Cppu!Tpvsdf;!Jnbhf/
-the 1 argument is     var bootSourceWatcher = $scope.$watch(
 !!!!wbs!cppuTpvsdfXbudifs!>!%tdpqf/%xbudi)
-the 1 argument is       function getBootSource() {
 !!!!!!gvodujpo!hfuCppuTpvsdf)*!|
-the 1 argument is         return ctrl.currentBootSource;
 !!!!!!!!sfuvso!dusm/dvssfouCppuTpvsdf<
-the 1 argument is       },
 !!!!!!~-
-the 1 argument is       function onBootSourceChange(newValue, oldValue) {
 !!!!!!gvodujpo!poCppuTpvsdfDibohf)ofxWbmvf-!pmeWbmvf*!|
-the 1 argument is         if (newValue !== oldValue) {
 !!!!!!!!jg!)ofxWbmvf!">>!pmeWbmvf*!|
-the 1 argument is           $scope.$broadcast(events.AVAIL_CHANGED, {
 !!!!!!!!!!%tdpqf/%cspbedbtu)fwfout/BWBJM`DIBOHFE-!|
-the 1 argument is             'data': bootSources[newValue]
 !!!!!!!!!!!!(ebub(;!cppuTpvsdft\ofxWbmvf^
-the 1 argument is           });
 !!!!!!!!!!~*<
-the 1 argument is         }
 !!!!!!!!~
-the 1 argument is       }
 !!!!!!~
-the 1 argument is     );
 !!!!*<
-the 1 argument is 
 
-the 1 argument is     var imagesWatcher = $scope.$watchCollection(
 !!!!wbs!jnbhftXbudifs!>!%tdpqf/%xbudiDpmmfdujpo)
-the 1 argument is       function getImages() {
 !!!!!!gvodujpo!hfuJnbhft)*!|
-the 1 argument is         return $scope.model.images;
 !!!!!!!!sfuvso!%tdpqf/npefm/jnbhft<
-the 1 argument is       },
 !!!!!!~-
-the 1 argument is       function onImagesChange() {
 !!!!!!gvodujpo!poJnbhftDibohf)*!|
-the 1 argument is         $scope.initPromise.then(function () {
 !!!!!!!!%tdpqf/jojuQspnjtf/uifo)gvodujpo!)*!|
-the 1 argument is           $scope.$applyAsync(function () {
 !!!!!!!!!!%tdpqf/%bqqmzBtzod)gvodujpo!)*!|
-the 1 argument is             if ($scope.launchContext.imageId) {
 !!!!!!!!!!!!jg!)%tdpqf/mbvodiDpoufyu/jnbhfJe*!|
-the 1 argument is               setSourceImageWithId($scope.launchContext.imageId);
 !!!!!!!!!!!!!!tfuTpvsdfJnbhfXjuiJe)%tdpqf/mbvodiDpoufyu/jnbhfJe*<
-the 1 argument is             }
 !!!!!!!!!!!!~
-the 1 argument is           });
 !!!!!!!!!!~*<
-the 1 argument is         });
 !!!!!!!!~*<
-the 1 argument is       }
 !!!!!!~
-the 1 argument is     );
 !!!!*<
-the 1 argument is 
 
-the 1 argument is     var volumeWatcher = $scope.$watchCollection(
 !!!!wbs!wpmvnfXbudifs!>!%tdpqf/%xbudiDpmmfdujpo)
-the 1 argument is       function getVolumes() {
 !!!!!!gvodujpo!hfuWpmvnft)*!|
-the 1 argument is         return $scope.model.volumes;
 !!!!!!!!sfuvso!%tdpqf/npefm/wpmvnft<
-the 1 argument is       },
 !!!!!!~-
-the 1 argument is       function onVolumesChange() {
 !!!!!!gvodujpo!poWpmvnftDibohf)*!|
-the 1 argument is         $scope.initPromise.then(function onInit() {
 !!!!!!!!%tdpqf/jojuQspnjtf/uifo)gvodujpo!poJoju)*!|
-the 1 argument is           $scope.$applyAsync(function setDefaultVolume() {
 !!!!!!!!!!%tdpqf/%bqqmzBtzod)gvodujpo!tfuEfgbvmuWpmvnf)*!|
-the 1 argument is             if ($scope.launchContext.volumeId) {
 !!!!!!!!!!!!jg!)%tdpqf/mbvodiDpoufyu/wpmvnfJe*!|
-the 1 argument is               setSourceVolumeWithId($scope.launchContext.volumeId);
 !!!!!!!!!!!!!!tfuTpvsdfWpmvnfXjuiJe)%tdpqf/mbvodiDpoufyu/wpmvnfJe*<
-the 1 argument is             }
 !!!!!!!!!!!!~
-the 1 argument is           });
 !!!!!!!!!!~*<
-the 1 argument is         });
 !!!!!!!!~*<
-the 1 argument is       }
 !!!!!!~
-the 1 argument is     );
 !!!!*<
-the 1 argument is 
 
-the 1 argument is     var snapshotWatcher = $scope.$watchCollection(
 !!!!wbs!tobqtipuXbudifs!>!%tdpqf/%xbudiDpmmfdujpo)
-the 1 argument is       function getSnapshots() {
 !!!!!!gvodujpo!hfuTobqtiput)*!|
-the 1 argument is         return $scope.model.volumeSnapshots;
 !!!!!!!!sfuvso!%tdpqf/npefm/wpmvnfTobqtiput<
-the 1 argument is       },
 !!!!!!~-
-the 1 argument is       function onSnapshotsChange() {
 !!!!!!gvodujpo!poTobqtiputDibohf)*!|
-the 1 argument is         $scope.initPromise.then(function onInit() {
 !!!!!!!!%tdpqf/jojuQspnjtf/uifo)gvodujpo!poJoju)*!|
-the 1 argument is           $scope.$applyAsync(function setDefaultSnapshot() {
 !!!!!!!!!!%tdpqf/%bqqmzBtzod)gvodujpo!tfuEfgbvmuTobqtipu)*!|
-the 1 argument is             if ($scope.launchContext.snapshotId) {
 !!!!!!!!!!!!jg!)%tdpqf/mbvodiDpoufyu/tobqtipuJe*!|
-the 1 argument is               setSourceSnapshotWithId($scope.launchContext.snapshotId);
 !!!!!!!!!!!!!!tfuTpvsdfTobqtipuXjuiJe)%tdpqf/mbvodiDpoufyu/tobqtipuJe*<
-the 1 argument is             }
 !!!!!!!!!!!!~
-the 1 argument is           });
 !!!!!!!!!!~*<
-the 1 argument is         });
 !!!!!!!!~*<
-the 1 argument is       }
 !!!!!!~
-the 1 argument is     );
 !!!!*<
-the 1 argument is 
 
-the 1 argument is     // Explicitly remove watchers on desruction of this controller
 !!!!00!Fyqmjdjumz!sfnpwf!xbudifst!po!eftsvdujpo!pg!uijt!dpouspmmfs
-the 1 argument is     $scope.$on('$destroy', function() {
 !!!!%tdpqf/%po)(%eftuspz(-!gvodujpo)*!|
-the 1 argument is       newSpecWatcher();
 !!!!!!ofxTqfdXbudifs)*<
-the 1 argument is       allocatedWatcher();
 !!!!!!bmmpdbufeXbudifs)*<
-the 1 argument is       bootSourceWatcher();
 !!!!!!cppuTpvsdfXbudifs)*<
-the 1 argument is       imagesWatcher();
 !!!!!!jnbhftXbudifs)*<
-the 1 argument is       volumeWatcher();
 !!!!!!wpmvnfXbudifs)*<
-the 1 argument is       snapshotWatcher();
 !!!!!!tobqtipuXbudifs)*<
-the 1 argument is     });
 !!!!~*<
-the 1 argument is 
 
-the 1 argument is     // Initialize
 !!!!00!Jojujbmj{f
-the 1 argument is     changeBootSource(ctrl.bootSourcesOptions[0].type);
 !!!!dibohfCppuTpvsdf)dusm/cppuTpvsdftPqujpot\1^/uzqf*<
-the 1 argument is 
 
-the 1 argument is     if (!$scope.model.newInstanceSpec.source_type) {
 !!!!jg!)"%tdpqf/npefm/ofxJotubodfTqfd/tpvsdf`uzqf*!|
-the 1 argument is       $scope.model.newInstanceSpec.source_type = ctrl.bootSourcesOptions[0];
 !!!!!!%tdpqf/npefm/ofxJotubodfTqfd/tpvsdf`uzqf!>!dusm/cppuTpvsdftPqujpot\1^<
-the 1 argument is       ctrl.currentBootSource = ctrl.bootSourcesOptions[0].type;
 !!!!!!dusm/dvssfouCppuTpvsdf!>!dusm/cppuTpvsdftPqujpot\1^/uzqf<
-the 1 argument is     }
 !!!!~
-the 1 argument is 
 
-the 1 argument is     ////////////////////
 !!!!00000000000000000000
-the 1 argument is 
 
-the 1 argument is     function updateBootSourceSelection(selectedSource) {
 !!!!gvodujpo!vqebufCppuTpvsdfTfmfdujpo)tfmfdufeTpvsdf*!|
-the 1 argument is       ctrl.currentBootSource = selectedSource;
 !!!!!!dusm/dvssfouCppuTpvsdf!>!tfmfdufeTpvsdf<
-the 1 argument is       $scope.model.newInstanceSpec.vol_create = false;
 !!!!!!%tdpqf/npefm/ofxJotubodfTqfd/wpm`dsfbuf!>!gbmtf<
-the 1 argument is       $scope.model.newInstanceSpec.vol_delete_on_instance_delete = false;
 !!!!!!%tdpqf/npefm/ofxJotubodfTqfd/wpm`efmfuf`po`jotubodf`efmfuf!>!gbmtf<
-the 1 argument is       changeBootSource(selectedSource);
 !!!!!!dibohfCppuTpvsdf)tfmfdufeTpvsdf*<
-the 1 argument is       validateBootSourceType();
 !!!!!!wbmjebufCppuTpvsdfUzqf)*<
-the 1 argument is     }
 !!!!~
-the 1 argument is     function isPowerOfTwo(n)
 !!!!gvodujpo!jtQpxfsPgUxp)o*
-the 1 argument is     {
 !!!!|
-the 1 argument is         if (n == 0)
 !!!!!!!!jg!)o!>>!1*
-the 1 argument is             return 0;
 !!!!!!!!!!!!sfuvso!1<
-the 1 argument is         while (n != 1)
 !!!!!!!!xijmf!)o!">!2*
-the 1 argument is         {
 !!!!!!!!|
-the 1 argument is             if (n%2 != 0)
 !!!!!!!!!!!!jg!)o&3!">!1*
-the 1 argument is                 return 0;
 !!!!!!!!!!!!!!!!sfuvso!1<
-the 1 argument is             n = n/2;
 !!!!!!!!!!!!o!>!o03<
-the 1 argument is         }
 !!!!!!!!~
-the 1 argument is         return 1;
 !!!!!!!!sfuvso!2<
-the 1 argument is     }
 !!!!~
-the 1 argument is     
 !!!!
-the 1 argument is     function ValidateSgxMemory(){
 !!!!gvodujpo!WbmjebufThyNfnpsz)*|
-the 1 argument is         var n=isPowerOfTwo($scope.model.newInstanceSpec.sgx_memory_mb)
 !!!!!!!!wbs!o>jtQpxfsPgUxp)%tdpqf/npefm/ofxJotubodfTqfd/thy`nfnpsz`nc*
-the 1 argument is             if (n == 0){
 !!!!!!!!!!!!jg!)o!>>!1*|
-the 1 argument is                 alert("SGX memory not Allowed!!! Provide in Power of 2")
 !!!!!!!!!!!!!!!!bmfsu)#THY!nfnpsz!opu!Bmmpxfe"""!Qspwjef!jo!Qpxfs!pg!3#*
-the 1 argument is                 $scope.model.newInstanceSpec.sgx_memory_mb = 0
 !!!!!!!!!!!!!!!!%tdpqf/npefm/ofxJotubodfTqfd/thy`nfnpsz`nc!>!1
-the 1 argument is             }
 !!!!!!!!!!!!~
-the 1 argument is     }
 !!!!~
-the 1 argument is 
 
-the 1 argument is     // Dynamically update page based on boot source selection
 !!!!00!Ezobnjdbmmz!vqebuf!qbhf!cbtfe!po!cppu!tpvsdf!tfmfdujpo
-the 1 argument is     function changeBootSource(key, preSelection) {
 !!!!gvodujpo!dibohfCppuTpvsdf)lfz-!qsfTfmfdujpo*!|
-the 1 argument is       updateDataSource(key, preSelection);
 !!!!!!vqebufEbubTpvsdf)lfz-!qsfTfmfdujpo*<
-the 1 argument is       updateHelpText(key);
 !!!!!!vqebufIfmqUfyu)lfz*<
-the 1 argument is       updateTableHeadCells(key);
 !!!!!!vqebufUbcmfIfbeDfmmt)lfz*<
-the 1 argument is       updateTableBodyCells(key);
 !!!!!!vqebufUbcmfCpezDfmmt)lfz*<
-the 1 argument is       updateFacets(key);
 !!!!!!vqebufGbdfut)lfz*<
-the 1 argument is     }
 !!!!~
-the 1 argument is 
 
-the 1 argument is     function updateDataSource(key, preSelection) {
 !!!!gvodujpo!vqebufEbubTpvsdf)lfz-!qsfTfmfdujpo*!|
-the 1 argument is       selection.length = 0;
 !!!!!!tfmfdujpo/mfohui!>!1<
-the 1 argument is       if (preSelection) {
 !!!!!!jg!)qsfTfmfdujpo*!|
-the 1 argument is         push.apply(selection, preSelection);
 !!!!!!!!qvti/bqqmz)tfmfdujpo-!qsfTfmfdujpo*<
-the 1 argument is       }
 !!!!!!~
-the 1 argument is       angular.extend(ctrl.tableData, bootSources[key]);
 !!!!!!bohvmbs/fyufoe)dusm/ubcmfEbub-!cppuTpvsdft\lfz^*<
-the 1 argument is     }
 !!!!~
-the 1 argument is 
 
-the 1 argument is     function updateHelpText() {
 !!!!gvodujpo!vqebufIfmqUfyu)*!|
-the 1 argument is       angular.extend(ctrl.helpText, {
 !!!!!!bohvmbs/fyufoe)dusm/ifmqUfyu-!|
-the 1 argument is         noneAllocText: gettext('Select a source from those listed below.'),
 !!!!!!!!opofBmmpdUfyu;!hfuufyu)(Tfmfdu!b!tpvsdf!gspn!uiptf!mjtufe!cfmpx/(*-
-the 1 argument is         availHelpText: gettext('Select one'),
 !!!!!!!!bwbjmIfmqUfyu;!hfuufyu)(Tfmfdu!pof(*-
-the 1 argument is         /*eslint-disable max-len */
 !!!!!!!!0+ftmjou.ejtbcmf!nby.mfo!+0
-the 1 argument is         volumeAZHelpText: gettext('When selecting volume as boot source, please ensure the instance's availability zone is compatible with your volume's availability zone.')
 !!!!!!!!wpmvnfB[IfmqUfyu;!hfuufyu)(Xifo!tfmfdujoh!wpmvnf!bt!cppu!tpvsdf-!qmfbtf!fotvsf!uif!jotubodf(t!bwbjmbcjmjuz!{pof!jt!dpnqbujcmf!xjui!zpvs!wpmvnf(t!bwbjmbcjmjuz!{pof/(*
-the 1 argument is         /*eslint-enable max-len */
 !!!!!!!!0+ftmjou.fobcmf!nby.mfo!+0
-the 1 argument is       });
 !!!!!!~*<
-the 1 argument is     }
 !!!!~
-the 1 argument is 
 
-the 1 argument is     function updateTableHeadCells(key) {
 !!!!gvodujpo!vqebufUbcmfIfbeDfmmt)lfz*!|
-the 1 argument is       refillArray(ctrl.tableHeadCells, tableHeadCellsMap[key]);
 !!!!!!sfgjmmBssbz)dusm/ubcmfIfbeDfmmt-!ubcmfIfbeDfmmtNbq\lfz^*<
-the 1 argument is     }
 !!!!~
-the 1 argument is 
 
-the 1 argument is     function updateTableBodyCells(key) {
 !!!!gvodujpo!vqebufUbcmfCpezDfmmt)lfz*!|
-the 1 argument is       refillArray(ctrl.tableBodyCells, tableBodyCellsMap[key]);
 !!!!!!sfgjmmBssbz)dusm/ubcmfCpezDfmmt-!ubcmfCpezDfmmtNbq\lfz^*<
-the 1 argument is     }
 !!!!~
-the 1 argument is 
 
-the 1 argument is     function updateFacets(key) {
 !!!!gvodujpo!vqebufGbdfut)lfz*!|
-the 1 argument is       refillArray(ctrl.sourceFacets, sourceTypeFacets[key]);
 !!!!!!sfgjmmBssbz)dusm/tpvsdfGbdfut-!tpvsdfUzqfGbdfut\lfz^*<
-the 1 argument is       $scope.$broadcast('facetsChanged');
 !!!!!!%tdpqf/%cspbedbtu)(gbdfutDibohfe(*<
-the 1 argument is     }
 !!!!~
-the 1 argument is 
 
-the 1 argument is     function refillArray(arrayToRefill, contentArray) {
 !!!!gvodujpo!sfgjmmBssbz)bssbzUpSfgjmm-!dpoufouBssbz*!|
-the 1 argument is       arrayToRefill.length = 0;
 !!!!!!bssbzUpSfgjmm/mfohui!>!1<
-the 1 argument is       Array.prototype.push.apply(arrayToRefill, contentArray);
 !!!!!!Bssbz/qspupuzqf/qvti/bqqmz)bssbzUpSfgjmm-!dpoufouBssbz*<
-the 1 argument is     }
 !!!!~
-the 1 argument is 
 
-the 1 argument is     /*
 !!!!0+
-the 1 argument is      * Validation
 !!!!!+!Wbmjebujpo
-the 1 argument is      */
 !!!!!+0
-the 1 argument is 
 
-the 1 argument is     /*
 !!!!0+
-the 1 argument is      * If boot source type is 'image' and 'Create New Volume' is checked, set the minimum volume
 !!!!!+!Jg!cppu!tpvsdf!uzqf!jt!(jnbhf(!boe!(Dsfbuf!Ofx!Wpmvnf(!jt!difdlfe-!tfu!uif!njojnvn!wpmvnf
-the 1 argument is      * size for validating vol_size field
 !!!!!+!tj{f!gps!wbmjebujoh!wpm`tj{f!gjfme
-the 1 argument is      */
 !!!!!+0
-the 1 argument is     function checkVolumeForImage() {
 !!!!gvodujpo!difdlWpmvnfGpsJnbhf)*!|
-the 1 argument is       var source = selection[0];
 !!!!!!wbs!tpvsdf!>!tfmfdujpo\1^<
-the 1 argument is 
 
-the 1 argument is       if (source && ctrl.currentBootSource === bootSourceTypes.IMAGE) {
 !!!!!!jg!)tpvsdf!''!dusm/dvssfouCppuTpvsdf!>>>!cppuTpvsdfUzqft/JNBHF*!|
-the 1 argument is         var imageGb = source.size * 1e-9;
 !!!!!!!!wbs!jnbhfHc!>!tpvsdf/tj{f!+!2f.:<
-the 1 argument is         var imageDisk = source.min_disk;
 !!!!!!!!wbs!jnbhfEjtl!>!tpvsdf/njo`ejtl<
-the 1 argument is         ctrl.minVolumeSize = Math.ceil(Math.max(imageGb, imageDisk));
 !!!!!!!!dusm/njoWpmvnfTj{f!>!Nbui/dfjm)Nbui/nby)jnbhfHc-!jnbhfEjtl**<
-the 1 argument is 
 
-the 1 argument is         var volumeSizeText = gettext('The volume size must be at least %(minVolumeSize)s GB');
 !!!!!!!!wbs!wpmvnfTj{fUfyu!>!hfuufyu)(Uif!wpmvnf!tj{f!nvtu!cf!bu!mfbtu!&)njoWpmvnfTj{f*t!HC(*<
-the 1 argument is         var volumeSizeObj = { minVolumeSize: ctrl.minVolumeSize };
 !!!!!!!!wbs!wpmvnfTj{fPck!>!|!njoWpmvnfTj{f;!dusm/njoWpmvnfTj{f!~<
-the 1 argument is         ctrl.minVolumeSizeError = interpolate(volumeSizeText, volumeSizeObj, true);
 !!!!!!!!dusm/njoWpmvnfTj{fFssps!>!joufsqpmbuf)wpmvnfTj{fUfyu-!wpmvnfTj{fPck-!usvf*<
-the 1 argument is       } else {
 !!!!!!~!fmtf!|
-the 1 argument is         /*eslint-disable no-undefined */
 !!!!!!!!0+ftmjou.ejtbcmf!op.voefgjofe!+0
-the 1 argument is         ctrl.minVolumeSize = undefined;
 !!!!!!!!dusm/njoWpmvnfTj{f!>!voefgjofe<
-the 1 argument is         /*eslint-enable no-undefined */
 !!!!!!!!0+ftmjou.fobcmf!op.voefgjofe!+0
-the 1 argument is       }
 !!!!!!~
-the 1 argument is     }
 !!!!~
-the 1 argument is 
 
-the 1 argument is     // Validator for boot source type. Instance count must to be 1 if volume selected
 !!!!00!Wbmjebups!gps!cppu!tpvsdf!uzqf/!Jotubodf!dpvou!nvtu!up!cf!2!jg!wpmvnf!tfmfdufe
-the 1 argument is     function validateBootSourceType() {
 !!!!gvodujpo!wbmjebufCppuTpvsdfUzqf)*!|
-the 1 argument is       var bootSourceType = ctrl.currentBootSource;
 !!!!!!wbs!cppuTpvsdfUzqf!>!dusm/dvssfouCppuTpvsdf<
-the 1 argument is       var instanceCount = $scope.model.newInstanceSpec.instance_count;
 !!!!!!wbs!jotubodfDpvou!>!%tdpqf/npefm/ofxJotubodfTqfd/jotubodf`dpvou<
-the 1 argument is 
 
-the 1 argument is       /*
 !!!!!!0+
-the 1 argument is        * Field is valid if boot source type is not volume, instance count is blank/undefined
 !!!!!!!+!Gjfme!jt!wbmje!jg!cppu!tpvsdf!uzqf!jt!opu!wpmvnf-!jotubodf!dpvou!jt!cmbol0voefgjofe
-the 1 argument is        * (this is an error with instance count) or instance count is 1
 !!!!!!!+!)uijt!jt!bo!fssps!xjui!jotubodf!dpvou*!ps!jotubodf!dpvou!jt!2
-the 1 argument is        */
 !!!!!!!+0
-the 1 argument is       var isValid = bootSourceType !== bootSourceTypes.VOLUME ||
 !!!!!!wbs!jtWbmje!>!cppuTpvsdfUzqf!">>!cppuTpvsdfUzqft/WPMVNF!}}
-the 1 argument is                     !instanceCount ||
 !!!!!!!!!!!!!!!!!!!!"jotubodfDpvou!}}
-the 1 argument is                     instanceCount === 1;
 !!!!!!!!!!!!!!!!!!!!jotubodfDpvou!>>>!2<
-the 1 argument is 
 
-the 1 argument is       $scope.launchInstanceSourceForm['boot-source-type']
 !!!!!!%tdpqf/mbvodiJotubodfTpvsdfGpsn\(cppu.tpvsdf.uzqf(^
-the 1 argument is             .$setValidity('bootSourceType', isValid);
 !!!!!!!!!!!!/%tfuWbmjejuz)(cppuTpvsdfUzqf(-!jtWbmje*<
-the 1 argument is     }
 !!!!~
-the 1 argument is 
 
-the 1 argument is     function findSourceById(sources, id) {
 !!!!gvodujpo!gjoeTpvsdfCzJe)tpvsdft-!je*!|
-the 1 argument is       var len = sources.length;
 !!!!!!wbs!mfo!>!tpvsdft/mfohui<
-the 1 argument is       var source;
 !!!!!!wbs!tpvsdf<
-the 1 argument is       for (var i = 0; i < len; i++) {
 !!!!!!gps!)wbs!j!>!1<!j!=!mfo<!j,,*!|
-the 1 argument is         source = sources[i];
 !!!!!!!!tpvsdf!>!tpvsdft\j^<
-the 1 argument is         if (source.id === id) {
 !!!!!!!!jg!)tpvsdf/je!>>>!je*!|
-the 1 argument is           return source;
 !!!!!!!!!!sfuvso!tpvsdf<
-the 1 argument is         }
 !!!!!!!!~
-the 1 argument is       }
 !!!!!!~
-the 1 argument is     }
 !!!!~
-the 1 argument is 
 
-the 1 argument is     function setSourceImageWithId(id) {
 !!!!gvodujpo!tfuTpvsdfJnbhfXjuiJe)je*!|
-the 1 argument is       var pre = findSourceById($scope.model.images, id);
 !!!!!!wbs!qsf!>!gjoeTpvsdfCzJe)%tdpqf/npefm/jnbhft-!je*<
-the 1 argument is       if (pre) {
 !!!!!!jg!)qsf*!|
-the 1 argument is         changeBootSource(bootSourceTypes.IMAGE, [pre]);
 !!!!!!!!dibohfCppuTpvsdf)cppuTpvsdfUzqft/JNBHF-!\qsf^*<
-the 1 argument is         $scope.model.newInstanceSpec.source_type = ctrl.bootSourcesOptions[0];
 !!!!!!!!%tdpqf/npefm/ofxJotubodfTqfd/tpvsdf`uzqf!>!dusm/cppuTpvsdftPqujpot\1^<
-the 1 argument is         ctrl.currentBootSource = ctrl.bootSourcesOptions[0].type;
 !!!!!!!!dusm/dvssfouCppuTpvsdf!>!dusm/cppuTpvsdftPqujpot\1^/uzqf<
-the 1 argument is       }
 !!!!!!~
-the 1 argument is     }
 !!!!~
-the 1 argument is 
 
-the 1 argument is     function setSourceVolumeWithId(id) {
 !!!!gvodujpo!tfuTpvsdfWpmvnfXjuiJe)je*!|
-the 1 argument is       var pre = findSourceById($scope.model.volumes, id);
 !!!!!!wbs!qsf!>!gjoeTpvsdfCzJe)%tdpqf/npefm/wpmvnft-!je*<
-the 1 argument is       if (pre) {
 !!!!!!jg!)qsf*!|
-the 1 argument is         changeBootSource(bootSourceTypes.VOLUME, [pre]);
 !!!!!!!!dibohfCppuTpvsdf)cppuTpvsdfUzqft/WPMVNF-!\qsf^*<
-the 1 argument is         $scope.model.newInstanceSpec.source_type = ctrl.bootSourcesOptions[2];
 !!!!!!!!%tdpqf/npefm/ofxJotubodfTqfd/tpvsdf`uzqf!>!dusm/cppuTpvsdftPqujpot\3^<
-the 1 argument is         ctrl.currentBootSource = ctrl.bootSourcesOptions[2].type;
 !!!!!!!!dusm/dvssfouCppuTpvsdf!>!dusm/cppuTpvsdftPqujpot\3^/uzqf<
-the 1 argument is       }
 !!!!!!~
-the 1 argument is     }
 !!!!~
-the 1 argument is 
 
-the 1 argument is     function setSourceSnapshotWithId(id) {
 !!!!gvodujpo!tfuTpvsdfTobqtipuXjuiJe)je*!|
-the 1 argument is       var pre = findSourceById($scope.model.volumeSnapshots, id);
 !!!!!!wbs!qsf!>!gjoeTpvsdfCzJe)%tdpqf/npefm/wpmvnfTobqtiput-!je*<
-the 1 argument is       if (pre) {
 !!!!!!jg!)qsf*!|
-the 1 argument is         changeBootSource(bootSourceTypes.VOLUME_SNAPSHOT, [pre]);
 !!!!!!!!dibohfCppuTpvsdf)cppuTpvsdfUzqft/WPMVNF`TOBQTIPU-!\qsf^*<
-the 1 argument is         $scope.model.newInstanceSpec.source_type = ctrl.bootSourcesOptions[3];
 !!!!!!!!%tdpqf/npefm/ofxJotubodfTqfd/tpvsdf`uzqf!>!dusm/cppuTpvsdftPqujpot\4^<
-the 1 argument is         ctrl.currentBootSource = ctrl.bootSourcesOptions[3].type;
 !!!!!!!!dusm/dvssfouCppuTpvsdf!>!dusm/cppuTpvsdftPqujpot\4^/uzqf<
-the 1 argument is       }
 !!!!!!~
-the 1 argument is     }
 !!!!~
-the 1 argument is   }
 !!~
-the 1 argument is })();
 ~*)*<
-the 1 argument is 
 
-the 1 argument is 
 
