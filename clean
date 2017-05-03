@@ -1,0 +1,10 @@
+#!/bin/bash
+
+path=$(pwd)
+final_path=$path"/"$1
+cd /root/Encrypt
+#IFS=''
+#while read line
+#do
+./app "Encrypt"  "$(cat $final_path)"
+#done< $final_path
