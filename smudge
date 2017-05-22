@@ -1,6 +1,0 @@
-#!/bin/bash
-
-path=$(pwd)
-#base64 --decode
-cd /root/Encrypt/
-./app "Decrypt"  "$(cat)"
