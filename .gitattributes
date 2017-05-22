@@ -1,1 +1,1 @@
-*.* filter=encrypt
+*.txt filter=encrypt
