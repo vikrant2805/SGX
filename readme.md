@@ -63,3 +63,19 @@ sudo python sgx_client_wo_hw.py -ip [<IP>] -p <proj_id> [--admin] -s [<SPID>] -c
     server_verify_ias : Server will call IAS for quote verification.
     SPID    : SPID provided by IAS in hexstring format. Required only when we are providing '--verify_ias'
     IAS_CRT : Absolute path of certificate for IAS server. Required only when we are providing '--verify_ias'
+
+### SGX Aware client without SGX Hardware
+
+* Provision Master key in Barbican
+```
+sudo python sgx_client_wo_hw.py -ip [<IP>] -p <proj_id> [--admin] -s [<SPID>] -crt [<IAS_CRT>] [--server_verify_ias] [--client_verify_ias]
+```
+
+    IP      : IPv4 address of the server. Default :- localhost
+    proj_id : Project ID
+    client_verify_ias : Client will call IAS for quote verification.
+    server_verify_ias : Server will call IAS for quote verification.
+    SPID    : SPID provided by IAS in hexstring format. Required only when we are providing '--verify_ias'
+    IAS_CRT : Absolute path of certificate for IAS server. Required only when we are providing '--verify_ias'
+
+* #### Attestation and Secret management
