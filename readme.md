@@ -66,7 +66,7 @@ sudo python sgx_client_wo_hw.py -ip [<IP>] -p <proj_id> [--admin] -s [<SPID>] -c
 
 ### SGX Aware client without SGX Hardware
 
-* Provision Master key in Barbican
+* #### Provision Master key in Barbican
 ```
 sudo python sgx_client_wo_hw.py -ip [<IP>] -p <proj_id> [--admin] -s [<SPID>] -crt [<IAS_CRT>] [--server_verify_ias] [--client_verify_ias]
 ```
@@ -79,3 +79,28 @@ sudo python sgx_client_wo_hw.py -ip [<IP>] -p <proj_id> [--admin] -s [<SPID>] -c
     IAS_CRT : Absolute path of certificate for IAS server. Required only when we are providing '--verify_ias'
 
 * #### Attestation and Secret management
+```
+sudo python sgx_client_wo_hw.py -ip [<IP>] -p <proj_id> -s [<SPID>] -crt [<IAS_CRT>] [--server_verify_ias] [--client_verify_ias]
+```
+
+    IP      : IPv4 address of the server. Default :- localhost
+    proj_id : Project ID
+    client_verify_ias : Client will call IAS for quote verification.
+    server_verify_ias : Server will call IAS for quote verification.
+    SPID    : SPID provided by IAS in hexstring format. Required only when we are providing '--verify_ias'
+    IAS_CRT : Absolute path of certificate for IAS server. Required only when we are providing '--verify_ias'
+
+* #### Policy Management
+```
+sudo python sgx_client_wo_hw.py -ip [<IP>] -p <proj_id> -po [<policy>] -mre [<mr_enclave_list_file_path>] -s [<SPID>] -crt [<IAS_CRT>] [--verify_ias]
+```
+
+    IP      : IPv4 address of the server. Default :- localhost
+    proj_id : Project ID
+    verify_ias : Client will call IAS or server.
+    policy  : Project Policy to be set. Along with policy, MR Signer or path of file with list of MR Enclaves that are base64 encoded needs to be provided.
+              Accepted values :-
+              1 :- Mr Signer of the Client is validated.
+              3 :- Mr Enclave of the Client is validated with a list of third party enclaves.
+    SPID    : SPID provided by IAS in hexstring format. Required only when we are providing '--verify_ias'
+    IAS_CRT : Absolute path of certificate for IAS server. Required only when we are providing '--verify_ias'
