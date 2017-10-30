@@ -6,7 +6,8 @@ SGX aware Barbican
 
 Go to intel-sgx/source/SGX-Barbican/
 
-Run 
+Run
+ 
 ```
    ./makeself_installer.sh
 ```
@@ -16,9 +17,11 @@ It will create **BarbiE.bz2.run**
 ## BarbiE Installation
 
 Execute "BarbiE.bz2.run" script as root user with IP address as parameter
+
 ```
     sudo ./BarbiE.bz2.run <ip_v4_address>
 ```
+
 This will prompt for details during SSL certification generation.
 Once done the Barbican will be started after installation is complete.
 
@@ -27,6 +30,7 @@ Once done the Barbican will be started after installation is complete.
 * Provide properties in the /opt/BarbiE/env.properties file
 
   *Required Properties are BARBICAN_ENCLAVE_PATH, IAS_URL, IAS_CRT_PATH, IAS_SPID, IAS_ENABLED for Barbican in different lines*
+
 ```
   Example:
          BARBICAN_ENCLAVE_PATH=/opt/BarbiE/lib
@@ -35,11 +39,13 @@ Once done the Barbican will be started after installation is complete.
          IAS_SPID=76508EJNCLBLB8DS19AC35I5U7XDV828
          IAS_ENABLED=True/False
 ```
+
 **IAS_ENABLED for server to call IAS or not for quote verification.**
 
 **IAS_URL, IAS_CRT_PATH, IAS_SPID are required for quote validation other wise Attestation will Fail.**
 
 ### Barbican start/stop/restart
+
 ```
 /opt/BarbiE/startup.sh start/stop/restart
 ```
@@ -47,6 +53,7 @@ Once done the Barbican will be started after installation is complete.
 ## Testing Barbican SGX Integration
 
 Go under /opt/BarbiE/test_scripts/
+
 ```
 sudo python sgx.py
 ```
@@ -54,9 +61,11 @@ sudo python sgx.py
 ## Sample Commands
 
 ###  Provision Master key in Barbican
+
 ```
 sudo python sgx_client_wo_hw.py -ip [<IP>] -p <proj_id> [--admin] -s [<SPID>] -crt [<IAS_CRT>] [--server_verify_ias] [--client_verify_ias]
 ```
+
     IP      : IPv4 address of the server. Default :- localhost
     proj_id : Project ID
     client_verify_ias : Client will call IAS for quote verification.
@@ -67,6 +76,7 @@ sudo python sgx_client_wo_hw.py -ip [<IP>] -p <proj_id> [--admin] -s [<SPID>] -c
 ### SGX Aware client without SGX Hardware
 
 * #### Provision Master key in Barbican
+
 ```
 sudo python sgx_client_wo_hw.py -ip [<IP>] -p <proj_id> [--admin] -s [<SPID>] -crt [<IAS_CRT>] [--server_verify_ias] [--client_verify_ias]
 ```
@@ -79,6 +89,7 @@ sudo python sgx_client_wo_hw.py -ip [<IP>] -p <proj_id> [--admin] -s [<SPID>] -c
     IAS_CRT : Absolute path of certificate for IAS server. Required only when we are providing '--verify_ias'
 
 * #### Attestation and Secret management
+
 ```
 sudo python sgx_client_wo_hw.py -ip [<IP>] -p <proj_id> -s [<SPID>] -crt [<IAS_CRT>] [--server_verify_ias] [--client_verify_ias]
 ```
@@ -91,14 +102,14 @@ sudo python sgx_client_wo_hw.py -ip [<IP>] -p <proj_id> -s [<SPID>] -crt [<IAS_C
     IAS_CRT : Absolute path of certificate for IAS server. Required only when we are providing '--verify_ias'
 
 * #### Policy Management
+
 ```
 sudo python sgx_client_wo_hw.py -ip [<IP>] -p <proj_id> -po [<policy>] -mre [<mr_enclave_list_file_path>] -s [<SPID>] -crt [<IAS_CRT>] [--verify_ias]
 ```
 
     IP      : IPv4 address of the server. Default :- localhost
     proj_id : Project ID
-    policy  : Project Policy to be set. Along with policy, MR Signer or path of file with list of MR Enclaves 
-that are base64 encoded needs to be provided.
+    policy  : Project Policy to be set. Along with policy, MR Signer or path of file with list of MR Enclaves that are base64 encoded needs to be provided.
               Accepted values :-
               1 :- Mr Signer of the Client is validated.
               3 :- Mr Enclave of the Client is validated with a list of third party enclaves.
@@ -106,3 +117,41 @@ that are base64 encoded needs to be provided.
     server_verify_ias : Server will call IAS for quote verification.
     SPID    : SPID provided by IAS in hexstring format. Required only when we are providing '--verify_ias'
     IAS_CRT : Absolute path of certificate for IAS server. Required only when we are providing '--verify_ias'
+
+###  SGX Aware client with SGX Hardware
+
+* #### Policy Management
+
+```
+  sudo python sgx_client_with_hw.py -ip [<IP>] -p <proj_id> -po [<policy>] -mre [<mr_enclave_list_file_path>] -s [<SPID>] -crt [<IAS_CRT>] [--verify_ias]
+```
+
+    IP      : IPv4 address of the server. Default :- localhost
+    proj_id : Project ID   
+    policy  : Project Policy to be set. Mandatory during first mutual attestation. If provided in
+              the subsequent call, client will be validated with existing policy and the project 
+              policy will be updated. When policy '3' is provided, path of file with list of MR enclaves
+              that are base64 encoded needs to be provided.
+              Accepted values :-
+              1 :- Mr Signer of the Client is validated.
+              2 :- Mr Enclave of the Client is validated.
+              3 :- Mr Enclave of the Client is validated with a list of third party enclaves.
+    verify_ias : Client will call IAS or server.
+    SPID    : SPID provided by IAS in hexstring format
+    IAS_CRT : Absolute path of certificate for IAS server
+
+* #### Secret Management
+
+```
+sudo python sgx_client_with_hw.py -ip [<IP>] -p <proj_id> -s [<SPID>] -crt [<IAS_CRT>] [--verify_ias]
+```
+
+    IP      : IPv4 address of the server. Default :- localhost
+    proj_id : Project ID
+    verify_ias : Client will call IAS or server.
+    SPID    : SPID provided by IAS in hexstring format
+    IAS_CRT : Absolute path of certificate for IAS server
+
+
+**The above test scripts are for standalone use of barbican. If barbican is configured with Keystone, the client scripts wont work.**
+
