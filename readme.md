@@ -11,6 +11,8 @@ Run
    ./makeself_installer.sh
 ```
 
+It will create **BarbiE.bz2.run**
+
 ## BarbiE Installation
 
 Execute "BarbiE.bz2.run" script as root user with IP address as parameter
