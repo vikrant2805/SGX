@@ -36,6 +36,7 @@ Once done the Barbican will be started after installation is complete.
          IAS_ENABLED=True/False
 ```
 **IAS_ENABLED for server to call IAS or not for quote verification.
+
 IAS_URL, IAS_CRT_PATH, IAS_SPID are required for quote validation other wise Attestation will Fail.**
 
 ### Barbican start/stop/restart
