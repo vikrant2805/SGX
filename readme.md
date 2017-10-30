@@ -5,6 +5,7 @@ SGX aware Barbican
 ## Create BarbiE Installer
 
 Go to intel-sgx/source/SGX-Barbican/
+
 Run 
 ```
    ./makeself_installer.sh
