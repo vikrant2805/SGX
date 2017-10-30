@@ -25,7 +25,8 @@ Once done the Barbican will be started after installation is complete.
 ### Prerequisite
 
 * Provide properties in the /opt/BarbiE/env.properties file
-  *Required Properties are BARBICAN_ENCLAVE_PATH, IAS_URL, IAS_CRT_PATH, IAS_SPID for Barbican in different lines8
+
+  *Required Properties are BARBICAN_ENCLAVE_PATH, IAS_URL, IAS_CRT_PATH, IAS_SPID for Barbican in different lines*
 ```
   Example:
          BARBICAN_ENCLAVE_PATH=/opt/BarbiE/lib
