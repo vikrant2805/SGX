@@ -1,7 +1,20 @@
 # Project Title
 
-One Paragraph of project description goes here
+SGX aware Barbican
 
-## Getting Started
+## Create BarbiE Installer
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Go to intel-sgx/source/SGX-Barbican/
+Run 
+```
+   ./makeself_installer.sh
+```
+
+## BarbiE Installation
+
+Execute "BarbiE.bz2.run" script as root user with IP address as parameter
+```
+    sudo ./BarbiE.bz2.run <ip_v4_address>
+```
+This will prompt for details during SSL certification generation.
+Once done the Barbican will be started after installation is complete.
