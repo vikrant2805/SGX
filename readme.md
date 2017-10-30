@@ -162,3 +162,9 @@ ias_enable  | server_verify_ias | client_verify_ias | Expected output |
 ----------- | ----------------- | ----------------- |---------------- |
 True        | True              | True              | Cleint verify Quote |
 True        | True              | False             | Server verify Quote |
+True        | False             | True              | Cleint verify Quote |
+True        | False             | False             | Server verify Quote |
+False       | True              | True              | Cleint verify Quote |
+False       | True              | False             | Server not configure to do ias verification |
+False       | False             | True              | Cleint verify Quote |
+False       | False             | False             | No IAS verification fake report generated  |
