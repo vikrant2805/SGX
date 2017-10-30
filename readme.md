@@ -158,7 +158,7 @@ sudo python sgx_client_with_hw.py -ip [<IP>] -p <proj_id> -s [<SPID>] -crt [<IAS
 
 ----------------------------------------------------------------------------------------------------------
 
-First Header  | Second Header
-------------- | -------------
-Content Cell  | Content Cell
-Content Cell  | Content Cell
+ias_enable  | server_verify_ias | client_verify_ias | Expected output |
+----------- | ----------------- | ----------------- |---------------- |
+True        | True              | True              | Cleint verify Quote |
+True        | True              | False             | Server verify Quote |
