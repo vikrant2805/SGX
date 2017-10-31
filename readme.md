@@ -26,7 +26,7 @@ This will prompt for details during SSL certification generation.
 
 ### Pre-requisite
 
-* All properties are mandatory *
+* All properties are mandatory 
 
   *Required Properties are **BARBICAN_ENCLAVE_PATH**, **IAS_URL**, **IAS_CRT_PATH**, **IAS_SPID**, **IAS_ENABLED** for Barbican in different lines*
 
@@ -204,5 +204,5 @@ sudo python sgx_client_with_hw.py -ip [<IP>] -p <proj_id> -s [<SPID>] -crt [<IAS
     IAS_CRT : Absolute path of certificate for IAS server
 
 
-<span style="color: red"> **The above test scripts are for standalone use of barbican. If barbican is configured with Keystone, the client scripts wont work.** </span>
+<span style="color: red">some **The above test scripts are for standalone use of barbican. If barbican is configured with Keystone, the client scripts wont work.** text</span>
 
