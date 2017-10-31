@@ -204,13 +204,6 @@ sudo python sgx_client_with_hw.py -ip [<IP>] -p <proj_id> -s [<SPID>] -crt [<IAS
     IAS_CRT : Absolute path of certificate for IAS server
 
 
-**The above test scripts are for standalone use of barbican. If barbican is configured with Keystone, the client scripts wont work.**
-
-- ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) `#f03c15`
-![#f03c15](https://placehold.it/15/f03c15/000000?text=+) `#f03c15`
-<font color="green"> Some green text </font>
-
 ```diff
-+ this will be highlighted in green
-- this will be highlighted in red
+-  **The above test scripts are for standalone use of barbican. If barbican is configured with Keystone, the client scripts wont work.**
 ```
