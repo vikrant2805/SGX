@@ -75,22 +75,25 @@ sudo python sgx_client_wo_hw.py -ip [<IP>] -p <proj_id> [--admin] -s [<SPID>] -c
 
 ### SGX Aware client without SGX Hardware
 
+
 ias_enable  | server_verify_ias | client_verify_ias | Expected output |
 ----------- | ----------------- | ----------------- |---------------- |
-True        | True              | True              | Cleint verify Quote |
-True        | True              | False             | Server verify Quote |
-True        | False             | True              | Cleint verify Quote |
-True        | False             | False             | Server verify Quote |
-False       | True              | True              | Cleint verify Quote |
+True        | True              | True              | Client verify quote |
+True        | True              | False             | Server verify quote |
+True        | False             | True              | Client verify quote |
+True        | False             | False             | Server verify quote |
+False       | True              | True              | Client verify quote |
 False       | True              | False             | Server not configure to do ias verification |
-False       | False             | True              | Cleint verify Quote |
+False       | False             | True              | Client verify quote |
 False       | False             | False             | No IAS verification fake report generated  |
+
 
 **ias_enabled** flag represents if configured to talk with IAS for quote verification
 
 **server_verify_ias** flag is provided by client to let server do the quote verification with IAS
 
 **client_verify_ias** flag is provided by client to let server know that client will verify quote with IAS
+
 
 
 * #### Provision Master key in Barbican
@@ -106,6 +109,7 @@ sudo python sgx_client_wo_hw.py -ip [<IP>] -p <proj_id> [--admin] -s [<SPID>] -c
     SPID    : SPID provided by IAS in hexstring format. Required only when we are providing '--verify_ias'
     IAS_CRT : Absolute path of certificate for IAS server. Required only when we are providing '--verify_ias'
 
+
 * #### Attestation and Secret management
 
 ```
@@ -118,6 +122,7 @@ sudo python sgx_client_wo_hw.py -ip [<IP>] -p <proj_id> -s [<SPID>] -crt [<IAS_C
     server_verify_ias : Server will call IAS for quote verification.
     SPID    : SPID provided by IAS in hexstring format. Required only when we are providing '--verify_ias'
     IAS_CRT : Absolute path of certificate for IAS server. Required only when we are providing '--verify_ias'
+
 
 * #### Policy Management
 
@@ -136,18 +141,28 @@ sudo python sgx_client_wo_hw.py -ip [<IP>] -p <proj_id> -po [<policy>] -mre [<mr
     SPID    : SPID provided by IAS in hexstring format. Required only when we are providing '--verify_ias'
     IAS_CRT : Absolute path of certificate for IAS server. Required only when we are providing '--verify_ias'
 
+
+
 ###  SGX Aware client with SGX Hardware
+
+**E1** :- Enclave 1
+
+**E2** :- Enclave 2(BarbiE)
+
+**E1 is initiator of mutual attestation with E2**
+
 
 ias_enable  | server_verify_ias | client_verify_ias | Expected output |
 ----------- | ----------------- | ----------------- |---------------- |
-True        | True              | True              | Cleint verify Quote |
-True        | True              | False             | Server verify Quote |
-True        | False             | True              | Cleint verify Quote |
-True        | False             | False             | Server verify Quote |
-False       | True              | True              | Cleint verify Quote |
+True        | True              | True              | E1 & E2 verify quote when acting as client enclave |
+True        | True              | False             | E1 & E2 verify quote when acting as server enclave |
+True        | False             | True              | E1 & E2 verify quote when acting as client enclave|
+True        | False             | False             | E1 & E2 verify quote when acting as server enclave |
+False       | True              | True              | Server not configure to do ias verification |
 False       | True              | False             | Server not configure to do ias verification |
-False       | False             | True              | Cleint verify Quote |
-False       | False             | False             | No IAS verification fake report generated  |
+False       | False             | True              | Server not configure to do ias verification |
+False       | False             | False             | E1 verify verify quote when acting as server enclave & E2 generate fake report when acting as server    |
+
 
 **ias_enabled** flag represents if configured to talk with IAS for quote verification
 
@@ -175,6 +190,7 @@ False       | False             | False             | No IAS verification fake r
     verify_ias : Client will call IAS or server.
     SPID    : SPID provided by IAS in hexstring format
     IAS_CRT : Absolute path of certificate for IAS server
+
 
 * #### Secret Management
 
