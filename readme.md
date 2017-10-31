@@ -209,3 +209,8 @@ sudo python sgx_client_with_hw.py -ip [<IP>] -p <proj_id> -s [<SPID>] -crt [<IAS
 - ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) `#f03c15`
 ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) `#f03c15`
 <font color="green"> Some green text </font>
+
+```diff
++ this will be highlighted in green
+- this will be highlighted in red
+```
