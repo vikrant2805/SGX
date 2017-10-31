@@ -120,6 +120,21 @@ sudo python sgx_client_wo_hw.py -ip [<IP>] -p <proj_id> -po [<policy>] -mre [<mr
 
 ###  SGX Aware client with SGX Hardware
 
+ias_enable  | server_verify_ias | client_verify_ias | Expected output |
+----------- | ----------------- | ----------------- |---------------- |
+True        | True              | True              | Cleint verify Quote |
+True        | True              | False             | Server verify Quote |
+True        | False             | True              | Cleint verify Quote |
+True        | False             | False             | Server verify Quote |
+False       | True              | True              | Cleint verify Quote |
+False       | True              | False             | Server not configure to do ias verification |
+False       | False             | True              | Cleint verify Quote |
+False       | False             | False             | No IAS verification fake report generated  |
+
+*ias_enabled* flag represents if configured to talk with IAS for quote verification
+*server_verify_ias* flag is provided by client to let server do the quote verification with IAS
+*client_verify_ias* flag is provided by client to let server know that client will verify quote with IAS
+
 * #### Policy Management
 
 ```
