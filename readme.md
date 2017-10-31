@@ -41,7 +41,7 @@ This will prompt for details during SSL certification generation.
 
 **IAS_ENABLED** : For server to call IAS or not for quote verification.
 
-**IAS_URL, IAS_CRT_PATH, IAS_SPID **: Required for quote validation other wise Attestation will Fail.
+**IAS_URL, IAS_CRT_PATH, IAS_SPID ** : Required for quote validation other wise Attestation will Fail.
 
 ### Barbican service start/stop/restart
 
@@ -204,5 +204,8 @@ sudo python sgx_client_with_hw.py -ip [<IP>] -p <proj_id> -s [<SPID>] -crt [<IAS
     IAS_CRT : Absolute path of certificate for IAS server
 
 
-<span style="color: red">some **The above test scripts are for standalone use of barbican. If barbican is configured with Keystone, the client scripts wont work.** text</span>
+**The above test scripts are for standalone use of barbican. If barbican is configured with Keystone, the client scripts wont work.**
 
+- ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) `#f03c15`
+![#f03c15](https://placehold.it/15/f03c15/000000?text=+) `#f03c15`
+<font color="green"> Some green text </font>
