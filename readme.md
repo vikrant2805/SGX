@@ -205,5 +205,5 @@ sudo python sgx_client_with_hw.py -ip [<IP>] -p <proj_id> -s [<SPID>] -crt [<IAS
 
 
 ```diff
--**The above test scripts are for standalone use of barbican. If barbican is configured with Keystone, the client scripts wont work.**
+**- The above test scripts are for standalone use of barbican. If barbican is configured with Keystone, the client scripts wont work.**
 ```
