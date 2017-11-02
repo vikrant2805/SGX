@@ -26,7 +26,7 @@ During installation it will prompt for details for self signed SSL certificate g
 
 ### Pre-requisite
 
-*All properties are mandatory 
+* All properties are mandatory 
 
   *Required Properties are **BARBICAN_ENCLAVE_PATH**, **IAS_URL**, **IAS_CRT_PATH**, **IAS_SPID**, **IAS_ENABLED** for Barbican on different lines*
 
@@ -169,7 +169,7 @@ False       | False             | True              | Server not configured to d
 False       | False             | False             | E1 verify quote when acting as server enclave & E2 generate fake report when acting as server |
 
 
-** ias_enabled** flag represents if server configured to talk with IAS.
+**ias_enabled** flag represents if server configured to talk with IAS.
 
 **server_verify_ias** flag is provided by client to let server do the quote verification with IAS.
 
